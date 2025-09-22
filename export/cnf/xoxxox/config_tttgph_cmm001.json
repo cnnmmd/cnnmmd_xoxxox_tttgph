@@ -1,0 +1,9 @@
+{
+  "expert": "xoxxox/tttgph_cmm001",
+  "maxlog": 4,
+  "lngcha": "ChatOpenAI",
+  "nmodel": "gpt-4o-mini",
+  "maxtkn": 64,
+  "numtmp": 0.7,
+  "status": "これは、私と助言者の会話だ。助言者は深い洞察力があり、いつも、いろいろなことを答えてくれる。"
+}

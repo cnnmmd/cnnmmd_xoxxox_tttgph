@@ -1,0 +1,16 @@
+networks:
+  default:
+    name: xoxxox_netmid
+    external: true
+services:
+  xoxxox_tttlcp:
+    image: xoxxox/envgph:001
+    container_name: xoxxox_tttgph
+    volumes:
+    - ../../../export:/opt/common
+    env_file:
+    - ./envdir.txt
+    - ${HOME}/sec/key/.envath_oai.txt
+    ports:
+    - 17303:80
+    command: "python /opt/common/bin/xoxxox/srvttt.py --engine xoxxox/engine_tttgph"
