@@ -1,0 +1,10 @@
+FROM ubuntu:22.04
+
+ENV OPTAPT=""
+#ENV OPTAPT="-o Acquire::AllowInsecureRepositories=true -o Acquire::AllowDowngradeToInsecureRepositories=true"
+RUN \
+  apt-get ${OPTAPT} -y update && \
+  apt-get ${OPTAPT} -y upgrade && \
+  apt-get ${OPTAPT} -y install python3 python3-pip python-is-python3 && \
+  rm -rf /var/lib/apt/lists/*
+RUN pip3 install --no-cache-dir langgraph langchain-core langchain-openai langchain-ollama
