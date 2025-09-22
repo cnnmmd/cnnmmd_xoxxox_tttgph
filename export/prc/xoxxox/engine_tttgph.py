@@ -4,7 +4,7 @@ from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph.message import add_messages
 from langchain_core.messages import BaseMessage, SystemMessage, HumanMessage, AIMessage
 from langchain_openai import ChatOpenAI
-from langchain_allama import ChatOllama
+from langchain_ollama import ChatOllama
 from xoxxox.shared import Custom, PrcFlw
 
 #---------------------------------------------------------------------------
