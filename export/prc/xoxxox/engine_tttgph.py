@@ -49,21 +49,24 @@ class TttPrc:
     self.expert = diccnf["expert"]
 
     # 作成：モデル
-    if mdlcrr != self.mdlold:
+    if nmodel != self.mdlold:
       if lngcha == "ChatOpenAI":
-        mdlcrr = ChatOpenAI(model=nmodel)
+        self.objllm = ChatOpenAI(model=nmodel)
       if lngcha == "ChatOllama":
         dicsrv = PrcFlw.dicsrv()
-        mdlcrr = ChatOllama(model=nmodel, base_url=dicsrv["xoxxox_appolm"])
-      self.mdlold = mdlcrr
-    mdlcrr = mdlcrr.bind(temperature=numtmp, max_tokens=maxtkn)
+        self.objllm = ChatOllama(model=nmodel, base_url=dicsrv["xoxxox_appolm"])
+      self.mdlold = nmodel
+    if lngcha == "ChatOpenAI":
+      self.objllm = self.objllm.bind(temperature=numtmp, max_tokens=maxtkn)
+    if lngcha == "ChatOllama":
+      self.objllm = self.objllm.bind(options={"temperature": numtmp, "num_predict": maxtkn})
 
     # 定義：ノード
     def nodcha(sstate: SState, *, config) -> SState:
       lstlog = MgrLog.trmlog(config, sstate["lstmsg"])
       prompt = [SystemMessage(content=status)] + lstlog
-      print("prompt[", prompt, "]") # DBG
-      result = mdlcrr.invoke(prompt)
+      print("prompt[", prompt, "]", flush=True) # DBG
+      result = self.objllm.invoke(prompt)
       dicsst = {"lstmsg": [AIMessage(content=result.content)]}
       return dicsst
 

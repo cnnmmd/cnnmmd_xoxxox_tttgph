@@ -1,8 +1,8 @@
 {
-  "expert": "xoxxox/tttgph_bra001",
+  "expert": "xoxxox/tttgph_bra002",
   "maxlog": 4,
-  "lngcha": "ChatOpenAI",
-  "nmodel": "gpt-4o-mini",
+  "lngcha": "ChatOllama",
+  "nmodel": "gemma3n:e2b",
   "maxtkn": 64,
   "numtmp": 0.7,
   "status": "あなたは、私の兄だ。兄は私のことが大好きで、いつも、いろいろなことを話してくれる。"
